@@ -1,0 +1,81 @@
+{% extends '_layout.html' %}
+{% block header %}
+<!-- Page Header-->
+<header class="masthead" style="padding-bottom:0px;padding-top:70px;margin-bottom:5px">
+</header>
+<!--<header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg') }}')">-->
+<!--    <div class="container position-relative px-4 px-lg-5">-->
+<!--        <div class="row gx-4 gx-lg-5 justify-content-center">-->
+<!--            <div class="col-md-10 col-lg-8 col-xl-7">-->
+<!--                <div class="site-heading">-->
+<!--                    <h1>{{params['blog_name']}}</h1>-->
+<!--                    <span class="subheading">{{params['tag_line']}}}</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</header>-->
+{% endblock %}
+
+{% block body %}
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row">
+         {% with messages = get_flashed_messages() %}
+         {% if messages %}
+               {% for message in messages %}
+                    <p>{{ message }}</p>
+               {% endfor %}
+         {% endif %}
+      {% endwith %}
+    </div>
+     <div class="col right">
+            <h6>Upload Image File</h6>
+            <form action="/upload" method=post enctype=multipart/form-data>
+                <input type=file class="form-control-file" name=file>
+                <input type=submit class="btn btn-sm btn-primary" value=Upload>
+            </form>
+        </div>
+    <hr/>
+    <div class="row">
+        <div class="col-lg-12 col-md-offset-6 col-right">
+            <a href="/edit/0">
+                <button type="button" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i>Add New</button>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Title</th>
+                <th scope="col">Date</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            {%for post in post_data%}
+            <tr>
+                <th scope="row">{{post.sn}}</th>
+                <td>{{post.title}}</td>
+                <td>{{post.created_on}}</td>
+                <td>
+                    <a href="/edit/{{post.sn}}">
+                        <button type="button" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
+                    </a>
+                </td>
+                <td>
+                    <a href="/delete/{{post.sn}}">
+                    <button type="button" class="btn btn-sm btn-primary"><i class="fas fa-trash-alt"></i></button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

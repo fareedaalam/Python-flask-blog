@@ -1,0 +1,24 @@
+{
+  "params": {
+    "local_server": "True",
+    "local_uri": "mysql+pymysql://root:@localhost/codewithfareed",
+    "prod_uri": "",
+    "fb_uri": "https://www.facebook.com/fareedaalam.1512",
+    "tw_uri": "https://twitter.com/ifareedalam",
+    "gh_uri": "https://github.com/fareedaalam",
+    "blog_name": "Code With Fareed",
+    "tag_line": "A Blog To Show Your Skills",
+    "gmail-user": "yourmail@gmail.com",
+    "gmail-pwd": "mailpwd",
+    "no_of_page": 10,
+    "no_of_posts": 2,
+    "login_img": "login.svg",
+    "admin_user": "admin",
+    "admin_pwd": "admin",
+    "file_upload_path": "//static//assets//blogimg//"
+  },
+  "comments": {
+    "no_of_page": "How many pages allow in admin grid",
+    "no_of_posts": "How many post show in index page"
+  }
+}
