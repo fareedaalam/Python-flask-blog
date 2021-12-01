@@ -1,3 +1,6 @@
+#show running sever
+	sudo lsof -i:5000
+	sudo kill -9 $(sudo lsof -t -i:5000)
 #linux hosting
 	## https://youtu.be/GQcUYFFKUSA
 	##nginx https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04
